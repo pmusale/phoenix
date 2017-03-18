@@ -1,0 +1,18 @@
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
+
+@Injectable()
+export class UsersService {
+
+  constructor(private http: Http) { }
+
+  // Get all posts from the API
+  getAllUsers() {
+	console.log("Inside get all users user service");  
+	console.log(this.http.get('/api/users'));
+    return this.http.get('/api/users').map(res => res.json());
+	//const str = '[{"id":"58bec88a0b14a346cc22762e","address1":"address1","address2":"address2","adultcheck":true,"city":"Edison","country":"USA","countrycode":"US","email":"p@g.com","firstName":"John","lastmodifieddate":1488898186223,"lastName":"Doe","state":"New Jersey","termsofuse_fkidtermsofuse":1,"termsofuseaccepted":false,"termsofuseaccepteddate":1488898186223,"zip":"1111"},{"id":"58becdb30b14a343dcddb8b4","address1":"address1","address2":"address2","adultcheck":true,"city":"Edison","country":"USA","countrycode":"US","email":"p@g.com","firstName":"John","lastmodifieddate":1488899507243,"lastName":"Doe","state":"New Jersey","termsofuse_fkidtermsofuse":1,"termsofuseaccepted":false,"termsofuseaccepteddate":1488899507243,"zip":"1111"},{"id":"58bece390b14a305e445bc2d","address1":"address1","address2":"address2","adultcheck":true,"city":"Edison","country":"USA","countrycode":"US","email":"p@g.com","firstName":"John","lastmodifieddate":1488899641043,"lastName":"Doe","state":"New Jersey","termsofuse_fkidtermsofuse":1,"termsofuseaccepted":false,"termsofuseaccepteddate":1488899641043,"zip":"1111"},{"id":"58bee30a0b14a3421c6ae872","address1":"address1","address2":"address2","adultcheck":true,"city":"Edison","country":"USA","countrycode":"US","email":"p@g.com","firstName":"John","lastmodifieddate":1488904970557,"lastName":"Doe","state":"New Jersey","termsofuse_fkidtermsofuse":1,"termsofuseaccepted":false,"termsofuseaccepteddate":1488904970557,"zip":"1111"},{"id":"58c2f6072f13cb2638ad8c2b","address1":"address1","address2":"address2","adultcheck":true,"city":"Edison","country":"USA","countrycode":"US","email":"p@g.com","firstName":"John","lastmodifieddate":1489171975950,"lastName":"Doe","state":"New Jersey","termsofuse_fkidtermsofuse":1,"termsofuseaccepted":false,"termsofuseaccepteddate":1489171975950,"zip":"1111"}]';
+	//return str.json();
+  }
+}
